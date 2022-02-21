@@ -1,0 +1,99 @@
+---
+title: "My Precious"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(palmerpenguins)
+library(tidyverse)
+library(plotly)
+```
+
+
+# More Penguins
+
+
+Sidebar {.sidebar}
+=========================
+
+Your text here. You can use markdown syntax, including [links](https://dataviz-2022.netlify.app/slides/w8.html#17), *italics*, **bolding**, etc.  
+----------------------------------
+
+Column {.tabsets}
+-----------------------------------------------------------------------
+
+### Chart A
+
+
+
+```{r}
+d <- penguins %>% 
+  ggplot(aes(island,bill_depth_mm))+
+  geom_col(fill = "purple")
+
+ggplotly(d)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+penguins %>% 
+  ggplot(aes(species, bill_depth_mm))+
+  geom_point()
+```
+Column {data-width=200}
+-----------------------------------------------------------------------
+
+### Chart C
+
+```{r}
+penguins %>% 
+  ggplot(aes(species, bill_depth_mm))+
+  geom_density()
+```
+
+
+# Penguins
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+penguins %>% 
+  ggplot(aes(island, bill_length_mm))+
+  geom_col(fill = "purple")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+d <- penguins %>% 
+  ggplot(aes(island,bill_depth_mm))+
+  geom_col(fill = "purple")
+
+ggplotly(d)
+
+```
+Column {data-width=200}
+-----------------------------------------------------------------------
+
+### Chart C
+
+```{r}
+penguins %>% 
+  ggplot(aes(species, bill_depth_mm))+
+  geom_density()
+```
+
